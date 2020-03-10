@@ -1,4 +1,7 @@
-﻿using System;
+﻿using LegoMiniFigs.Composition.Heads;
+using LegoMiniFigs.Composition.Legs;
+using LegoMiniFigs.Composition.Torsos;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -13,11 +16,22 @@ namespace LegoMiniFigs
         public string Job { get; private set; }  // Only set within class unless set in instantiation "Public property with a private setter"
         public int OxygenLevel { get; set; }
 
-        public Astronaut(string name, string job)
+        public AstronautTorso Torso { get; set; }
+        public AstronautLegs Legs { get; set; }
+        public ZoeHead Head { get; set; }
+
+
+        public Astronaut(string name, string job,
+                         ZoeHead head, AstronautTorso torso, AstronautLegs legs)
         {
             Name = name;
             Job = job;
+
+            Head = head;
+            Torso = torso;
+            Legs = legs;
         }
+
 
         public void Promote()
         {
@@ -27,6 +41,10 @@ namespace LegoMiniFigs
         public void DoYourJob()
         {
             Console.WriteLine($"{Name} is doing all their {Job} duties...");
+            Legs.Walk(15);
+            Head.EatPie("Cherry");
+            Torso.Flex();
+            Legs.Walk(10);
         }
 
     }
