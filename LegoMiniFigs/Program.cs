@@ -1,4 +1,6 @@
-﻿using LegoMiniFigs.Composition.Torsos;
+﻿using LegoMiniFigs.Composition.Heads;
+using LegoMiniFigs.Composition.Legs;
+using LegoMiniFigs.Composition.Torsos;
 using System;
 
 namespace LegoMiniFigs
@@ -7,10 +9,10 @@ namespace LegoMiniFigs
     {
         static void Main(string[] args)
         {
-            var head = new Zoehead()
+            var head = new ZoeHead()
             {
                 FacialExpression = "smiling",
-                ConsoleColor = "Orange",
+                Color = LegoColor.Orange,
                 Helmeted = true
             };
 
@@ -20,6 +22,12 @@ namespace LegoMiniFigs
                 NumberOfArms = 3,
                 ChiseledAbs = false,
                 HandType = HandType.Tentacles
+            };
+
+            var legs = new AstronautLegs()
+            {
+                HasPants = true,
+                Shoes = ShoeType.FlipFlops
             };
 
 

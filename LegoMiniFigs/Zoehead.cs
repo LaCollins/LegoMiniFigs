@@ -7,7 +7,7 @@
         }
 
         public string FacialExpression { get; set; }
-        public string ConsoleColor { get; set; }
+        public string Color { get; set; }
         public bool Helmeted { get; set; }
     }
 }
