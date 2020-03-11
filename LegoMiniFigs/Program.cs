@@ -16,12 +16,19 @@ namespace LegoMiniFigs
                 Helmeted = true
             };
 
-            var torso = new AstronautTorso()
+            var atorso = new AstronautTorso()
             {
                 Shirted = true,
-                NumberOfArms = 3,
                 ChiseledAbs = false,
-                HandType = HandType.Tentacles
+                HandType = HandType.BabyHands,
+                NumberOfHands = 3
+            };
+
+            var dtorso = new DadBodTorso()
+            {
+                Shirted = true,
+                ChiseledAbs = false,
+                HandType = HandType.BabyHands
             };
 
             var legs = new AstronautLegs()
@@ -30,9 +37,12 @@ namespace LegoMiniFigs
                 Shoes = ShoeType.FlipFlops
             };
 
+            atorso.Breathe();
+            dtorso.Breathe();
 
-            var astronaut = new Astronaut("Space Force Bill", "Janitor", head, torso, legs);
-            var astronaut2 = new Astronaut("Space Force Jill", "Space Welder", head, torso, legs);
+
+            var astronaut = new Astronaut("Space Force Bill", "Janitor", head, dtorso, legs);
+            var astronaut2 = new Astronaut("Space Force Jill", "Space Welder", head, atorso, legs);
 
 
             astronaut.DoYourJob();
