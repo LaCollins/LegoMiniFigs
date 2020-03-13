@@ -1,4 +1,8 @@
-﻿using System;
+﻿using LegoMiniFigs.Composition.Heads;
+using LegoMiniFigs.Composition.Legs;
+using LegoMiniFigs.Composition.Torsos;
+using System.Collections.Generic;
+using System;
 
 namespace LegoMiniFigs
 {
@@ -6,12 +10,46 @@ namespace LegoMiniFigs
     {
         static void Main(string[] args)
         {
-            var astronaut = new Astronaut("Space Force Bill", "Janitor");
-            var astronaut2 = new Astronaut("Space Force Jill", "Space Welder");
+            var head = new ZoeHead()
+            {
+                FacialExpression = "smiling",
+                Color = LegoColor.Orange,
+                Helmeted = true
+            };
+
+            var atorso = new AstronautTorso()
+            {
+                Shirted = true,
+                ChiseledAbs = false,
+                HandType = HandType.BabyHands,
+                NumberOfHands = 3
+            };
+
+            var dtorso = new DadBodTorso()
+            {
+                Shirted = true,
+                ChiseledAbs = false,
+                HandType = HandType.BabyHands
+            };
+
+            var legs = new AstronautLegs()
+            {
+                HasPants = true,
+                Shoes = ShoeType.FlipFlops
+            };
+
+            atorso.Breathe();
+            dtorso.Breathe();
+
+
+            var astronaut = new Astronaut("Space Force Bill", "Janitor", head, dtorso, legs);
+            var astronaut2 = new Astronaut("Space Force Jill", "Space Welder", head, atorso, legs);
+
 
             astronaut.DoYourJob();
             astronaut2.Promote();
             astronaut2.DoYourJob();
+
 
             var casper = new Ghost("Capser", DateTime.Today)
             { // object initializer
@@ -32,7 +70,14 @@ namespace LegoMiniFigs
             fatso.Haunt("Whipstaff Manor");
             fatso.Spook();
 
+            var torsos = new List<TorsoBase>() { dtorso, atorso };
+            //torsos.Add(atorso);
 
+            foreach (var torso in torsos)
+            {
+                torso.Breathe();
+                torso.Flex();
+            }
 
             Console.ReadKey();
         }
