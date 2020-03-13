@@ -1,6 +1,7 @@
 ﻿using LegoMiniFigs.Composition.Heads;
 using LegoMiniFigs.Composition.Legs;
 using LegoMiniFigs.Composition.Torsos;
+using System.Collections.Generic;
 using System;
 
 namespace LegoMiniFigs
@@ -69,7 +70,14 @@ namespace LegoMiniFigs
             fatso.Haunt("Whipstaff Manor");
             fatso.Spook();
 
+            var torsos = new List<TorsoBase>() { dtorso, atorso };
+            //torsos.Add(atorso);
 
+            foreach (var torso in torsos)
+            {
+                torso.Breathe();
+                torso.Flex();
+            }
 
             Console.ReadKey();
         }

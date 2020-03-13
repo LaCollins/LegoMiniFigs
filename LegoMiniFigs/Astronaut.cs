@@ -12,7 +12,7 @@ namespace LegoMiniFigs
     {
         private string v1;
         private string v2;
-        private Zoehead head;
+        private ZoeHead head;
         private object legs;
 
         public Location Location { get; set; }
